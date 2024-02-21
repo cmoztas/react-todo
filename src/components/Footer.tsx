@@ -2,7 +2,7 @@ import {Github, LinkedinIcon, Send} from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="absolute bottom-0 w-full p-5">
+        <footer className="w-full p-5">
             <div className="flex items-center w-full justify-center gap-4">
                 <a href="https://github.com/cmoztas/react-todo" target="_blank">
                     <Github size={20}/>
