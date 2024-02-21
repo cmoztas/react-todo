@@ -1,6 +1,7 @@
 import {Github, LinkedinIcon, Send} from "lucide-react";
+import {JSX} from "react";
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
     return (
         <footer className="w-full p-5">
             <div className="flex items-center w-full justify-center gap-4">

@@ -3,15 +3,17 @@ import TodoList from "./components/TodoList.tsx";
 import TodoSummary from "./components/TodoSummary.tsx";
 import useTodos from "./hooks/useTodos.ts";
 import Footer from "./components/Footer.tsx";
+import {JSX} from "react";
+import {UseTodoHook} from "./types/hooks/use-todo-hook.ts";
 
-function App() {
+function App(): JSX.Element {
     const {
         todos,
         addTodo,
         setTodoCompleted,
         removeTodo,
         removeAllCompletedTodos
-    } = useTodos();
+    }: UseTodoHook = useTodos();
 
     return (
         <>
@@ -27,7 +29,7 @@ function App() {
                 </div>
                 <TodoSummary todos={todos} removeAllCompleted={removeAllCompletedTodos}/>
             </main>
-            <Footer />
+            <Footer/>
         </>
     )
 }

@@ -1,15 +1,12 @@
-import {Todo} from "../types/todo.ts";
-
-interface TodoSummaryProps {
-    todos: Todo[];
-    removeAllCompleted: () => void;
-}
+import {TodoSummaryProps} from "../types/props/todo-summary-props.ts";
+import {Todo} from "../types/entity/todo.ts";
+import {JSX} from "react";
 
 export default function TodoSummary({
     todos,
     removeAllCompleted
-}: TodoSummaryProps) {
-    const completedTodos = todos.filter(todo => todo.completed);
+}: TodoSummaryProps): JSX.Element {
+    const completedTodos: Todo[] = todos.filter((todo: Todo) => todo.completed);
 
     return (
         <div className="text-center space-y-2">

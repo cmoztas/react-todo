@@ -1,13 +1,10 @@
-import React, {useState} from "react";
+import React, {JSX, SetStateAction, useState} from "react";
+import {AddTodoFormProps} from "../types/props/add-todo-form-props.ts";
 
-interface  AddTodoFormProps {
-    onSubmit: (title: string) => void;
-}
+export default function AddTodoForm({onSubmit}: AddTodoFormProps): JSX.Element {
+    const [input, setInput]: [string, React.Dispatch<SetStateAction<string>>] = useState('');
 
-export default function AddTodoForm({onSubmit}: AddTodoFormProps) {
-    const [input, setInput] = useState('');
-
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
         e.preventDefault();
 
         if (!input.trim()) return;
@@ -20,7 +17,7 @@ export default function AddTodoForm({onSubmit}: AddTodoFormProps) {
         <form className="flex" onSubmit={handleSubmit}>
             <input
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
                 placeholder={"What needs to be done?"}
                 className="rounded-s-md grow border border-gray-400 p-2"
             />

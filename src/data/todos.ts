@@ -1,4 +1,4 @@
-import {Todo} from "../types/todo.ts";
+import {Todo} from "../types/entity/todo.ts";
 
 export const dummyData: Todo[] = [
     {

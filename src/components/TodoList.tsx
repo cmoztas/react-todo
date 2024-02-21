@@ -1,18 +1,14 @@
 import TodoItem from "./TodoItem.tsx";
-import {Todo} from "../types/todo.ts";
-
-interface TodoListProps {
-    todos: Todo[];
-    onCompletedChange: (id: number, completed: boolean) => void;
-    onRemove: (id: number) => void;
-}
+import {Todo} from "../types/entity/todo.ts";
+import {JSX} from "react";
+import {TodoListProps} from "../types/props/todo-list-props.ts";
 
 export default function TodoList({
     todos,
     onCompletedChange,
     onRemove
- }: TodoListProps) {
-    const todosSorted = todos.sort((x, y) => {
+ }: TodoListProps): JSX.Element {
+    const todosSorted: Todo[] = todos.sort((x: Todo, y: Todo): number => {
         if (x.completed === y.completed) {
             return y.id - x.id;
         }
@@ -23,7 +19,7 @@ export default function TodoList({
     return (
         <>
             <div className="space-y-2">
-                {todosSorted.map((todo) => (
+                {todosSorted.map((todo: Todo) => (
                     <TodoItem
                         key={todo.id}
                         todo={todo}
